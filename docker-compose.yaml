@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: MIT
+# Copyright (C) Jarkko Sakkinen 2026
+
+name: hindsight
+
+services:
+  hindsight:
+    build: .
+    image: hindsight-openrouter:latest
+    ports:
+      - "8888:8888"
+      - "9999:9999"
+    environment:
+      HINDSIGHT_API_LLM_PROVIDER: openrouter
+      HINDSIGHT_API_LLM_API_KEY: "${OPENROUTER_API_KEY:?Set OPENROUTER_API_KEY in your shell or .env}"
+      HINDSIGHT_API_LLM_MODEL: "${HINDSIGHT_API_LLM_MODEL:-deepseek/deepseek-v4-flash}"
+      HINDSIGHT_API_LLM_EXTRA_BODY: '{"reasoning":{"effort":"high"}}'
+      HINDSIGHT_API_LLM_MAX_CONCURRENT: "${HINDSIGHT_API_LLM_MAX_CONCURRENT:-4}"
+      HINDSIGHT_API_LLM_TIMEOUT: "${HINDSIGHT_API_LLM_TIMEOUT:-300}"
+      HINDSIGHT_API_ENABLE_OBSERVATIONS: "${HINDSIGHT_API_ENABLE_OBSERVATIONS:-true}"
+    volumes:
+      - pg_data:/home/hindsight/.pg0
+      - hf_cache:/home/hindsight/.cache/huggingface
+
+volumes:
+  pg_data:
+  hf_cache:
