@@ -25,7 +25,7 @@ docker compose up --build
 ## Default model configuration
 
 - LLM provider: `openrouter`
-- LLM model: `deepseek/deepseek-v4-flash`
+- LLM model: `mistralai/mistral-small-3.2-24b-instruct`
 - Thinking: OpenRouter `reasoning.effort=high`
 - Observations: enabled```
 
