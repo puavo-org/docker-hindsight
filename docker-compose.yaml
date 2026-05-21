@@ -6,7 +6,7 @@ name: hindsight
 services:
   hindsight:
     build: .
-    image: hindsight-openrouter:latest
+    image: hindsight:latest
     ports:
       - "8888:8888"
       - "9999:9999"
