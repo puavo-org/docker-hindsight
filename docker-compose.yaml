@@ -19,9 +19,5 @@ services:
       HINDSIGHT_API_LLM_TIMEOUT: "${HINDSIGHT_API_LLM_TIMEOUT:-300}"
       HINDSIGHT_API_ENABLE_OBSERVATIONS: "${HINDSIGHT_API_ENABLE_OBSERVATIONS:-true}"
     volumes:
-      - pg_data:/home/hindsight/.pg0
-      - hf_cache:/home/hindsight/.cache/huggingface
-
-volumes:
-  pg_data:
-  hf_cache:
+      - ${HOME}/.hindsight/data:/home/hindsight/.pg0
+      - ${HOME}/.hindsight/cache:/home/hindsight/.cache/huggingface
