@@ -11,7 +11,7 @@ cp .env.example .env
 $EDITOR .env
 ```
 
-## Build an run
+## Build and run
 
 ```bash
 docker compose up --build
@@ -25,9 +25,12 @@ docker compose up --build
 ## Default model configuration
 
 - LLM provider: `openrouter`
-- LLM model: `mistralai/mistral-small-3.2-24b-instruct`
+- Default/fallback LLM model: `openai/gpt-oss-20b`
+- Retain LLM model: `openai/gpt-oss-20b`
+- Reflect LLM model: `openai/gpt-oss-120b`
+- Observation consolidation LLM model: `openai/gpt-oss-20b`
 - Thinking: OpenRouter `reasoning.effort=high`
-- Observations: enabled```
+- Observations: enabled
 
 ## License
 
