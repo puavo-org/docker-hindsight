@@ -1,36 +1,28 @@
 # Hindsight container
 
-Run Hindsight with OpenRouter API keys.
+## Preparation
 
-## Configuration
-
-Copy the example file and substitute the API key:
-
-```bash
-cp .env.example .env
-$EDITOR .env
+```
+touch "$HOME/.hindsight/models/llamacpp_server.log"
+chmod 666 "$HOME/.hindsight/models/llamacpp_server.log"
+mkdir -p "$HOME/.hindsight/models"
+curl -L \
+  -o "$HOME/.hindsight/models/gpt-oss-20b-mxfp4.gguf" \
+  "https://huggingface.co/ggml-org/gpt-oss-20b-GGUF/resolve/main/gpt-oss-20b-mxfp4.gguf"
 ```
 
-## Build and run
+## Bringing up the container
 
 ```bash
 docker compose up --build
 ```
 
-## API
+## Customizing the environment
 
-- REST-API: http://localhost:8888
-- UI dashboard: http://localhost:9999
-
-## Default model configuration
-
-- LLM provider: `openrouter`
-- Default/fallback LLM model: `openai/gpt-oss-20b`
-- Retain LLM model: `openai/gpt-oss-20b`
-- Reflect LLM model: `openai/gpt-oss-20b`
-- Observation consolidation LLM model: `openai/gpt-oss-20b`
-- Thinking: OpenRouter `reasoning.effort=low`
-- Observations: enabled
+```bash
+cp .env.example .env
+$EDITOR .env
+```
 
 ## License
 
