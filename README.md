@@ -27,9 +27,9 @@ docker compose up --build
 - LLM provider: `openrouter`
 - Default/fallback LLM model: `openai/gpt-oss-20b`
 - Retain LLM model: `openai/gpt-oss-20b`
-- Reflect LLM model: `openai/gpt-oss-120b`
+- Reflect LLM model: `openai/gpt-oss-20b`
 - Observation consolidation LLM model: `openai/gpt-oss-20b`
-- Thinking: OpenRouter `reasoning.effort=high`
+- Thinking: OpenRouter `reasoning.effort=low`
 - Observations: enabled
 
 ## License
